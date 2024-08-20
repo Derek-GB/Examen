@@ -4,6 +4,7 @@
  */
 package GUI;
 
+import Tickets.ControladorTickets;
 import Tickets.ListaTickets;
 import Tickets.Ticket;
 import Tickets.TipoTicket;
@@ -22,11 +23,11 @@ public class FrmGenarador extends javax.swing.JInternalFrame {
     /**
      * Creates new form FrmGenarador
      */
-    ListaTickets lista;
+    ControladorTickets controlador;
     Ticket ticket;
-    public FrmGenarador(ListaTickets lista) {
+    public FrmGenarador(ControladorTickets controlador) {
         initComponents();
-        this.lista=lista;
+        this.controlador=controlador;
     }
 
     /**
@@ -113,9 +114,8 @@ public class FrmGenarador extends javax.swing.JInternalFrame {
             case 2 -> tipo = TipoTicket.Preferencial;
             default -> tipo = TipoTicket.Preferencial;
         }
-        ticket=new Ticket(tipo);
         
-        lista.agregar(ticket);
+        controlador.generarTicket(tipo);
          JOptionPane.showMessageDialog(rootPane, "Se agrego correctamente");
     }//GEN-LAST:event_jButton1ActionPerformed
 

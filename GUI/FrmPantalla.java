@@ -4,6 +4,7 @@
  */
 package GUI;
 
+import Tickets.ControladorTickets;
 import Tickets.ListaTickets;
 import Tickets.Ticket;
 
@@ -16,11 +17,11 @@ public class FrmPantalla extends javax.swing.JInternalFrame {
     /**
      * Creates new form FrmPantalla
      */
-    ListaTickets lista;
-    Ticket ticket;
-    public FrmPantalla(ListaTickets lista) {
+    
+    ControladorTickets controlador;
+    public FrmPantalla(ControladorTickets controlador) {
         initComponents();
-        this.lista=lista;
+        this.controlador=controlador;
     }
 
     /**
