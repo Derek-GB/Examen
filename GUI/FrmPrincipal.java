@@ -5,6 +5,8 @@
 package GUI;
 
 import Tickets.ListaTickets;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 
 /**
  *
@@ -18,7 +20,9 @@ public class FrmPrincipal extends javax.swing.JFrame {
     ListaTickets lista;
     public FrmPrincipal() {
         initComponents();
+        centrar(this);
         lista= new ListaTickets();
+        
     }
 
     /**
@@ -52,16 +56,16 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(172, 172, 172)
+                .addGap(407, 407, 407)
                 .addComponent(jLabel1)
-                .addContainerGap(189, Short.MAX_VALUE))
+                .addContainerGap(412, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(120, 120, 120)
+                .addGap(164, 164, 164)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(112, Short.MAX_VALUE))
+                .addContainerGap(243, Short.MAX_VALUE))
         );
 
         jDesktopPane1.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -70,11 +74,15 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jDesktopPane1.setLayout(jDesktopPane1Layout);
         jDesktopPane1Layout.setHorizontalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         txtAdministrar.setText("Administrar");
@@ -89,6 +97,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
         txtAdministrar.add(jMenuItem1);
 
         jMenuItem2.setText("Pantalla");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         txtAdministrar.add(jMenuItem2);
 
         jMenuItem3.setText("Atención");
@@ -115,7 +128,14 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         FrmGenarador frm= new FrmGenarador(lista);
         jDesktopPane1.add(frm);
+        frm.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        FrmPantalla frm= new FrmPantalla(lista);
+        jDesktopPane1.add(frm);
+        frm.setVisible(true);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -162,4 +182,20 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JMenu txtAdministrar;
     // End of variables declaration//GEN-END:variables
+
+  private void centrar(javax.swing.JFrame frame) {
+        // Obtener la dimensión de la pantalla
+        Toolkit toolkit = Toolkit.getDefaultToolkit();
+        Dimension screenSize = toolkit.getScreenSize();
+        
+        // Obtener la dimensión del JFrame
+        Dimension frameSize = frame.getSize();
+        
+        // Calcular la posición x y y para centrar el JFrame
+        int x = (screenSize.width - frameSize.width) / 2;
+        int y = (screenSize.height - frameSize.height) / 2;
+        
+        // Establecer la posición del JFrame
+        frame.setLocation(x, y);
+    }
 }

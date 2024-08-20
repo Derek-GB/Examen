@@ -16,14 +16,14 @@ import javax.swing.plaf.OptionPaneUI;
  * @author Student
  */
 
-public class FrmGenarador extends javax.swing.JInternalFrame {
+public class FrmPantalla extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form FrmGenarador
      */
     ListaTickets lista;
     Ticket ticket;
-    public FrmGenarador(ListaTickets lista) {
+    public FrmPantalla(ListaTickets lista) {
         initComponents();
         this.lista=lista;
     }
@@ -38,25 +38,21 @@ public class FrmGenarador extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        txtTipo = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        txtNumero = new javax.swing.JTextField();
 
         setClosable(true);
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 102));
 
-        txtTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Plataformas", "Cajas", "Preferencial" }));
-
         jLabel1.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Tipo de Ticket");
+        jLabel1.setText("Siguiente puesto en ser atendido: ");
 
-        jButton1.setText("Guardar");
-        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        txtNumero.setEditable(false);
+        txtNumero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                txtNumeroActionPerformed(evt);
             }
         });
 
@@ -65,28 +61,22 @@ public class FrmGenarador extends javax.swing.JInternalFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(123, 123, 123)
-                        .addComponent(txtTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(147, 147, 147)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(162, 162, 162)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(133, Short.MAX_VALUE))
+                .addContainerGap(94, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(89, 89, 89))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(175, 175, 175)
+                .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(52, 52, 52)
+                .addGap(45, 45, 45)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(55, 55, 55)
-                .addComponent(jButton1)
-                .addContainerGap(77, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(157, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -103,26 +93,18 @@ public class FrmGenarador extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        TipoTicket tipo;
-        int seleccion= txtTipo.getSelectedIndex();
-        switch (seleccion){
-            case 0 -> tipo = TipoTicket.Plataforma;
-            case 1 -> tipo = TipoTicket.Cajas;
-            case 2 -> tipo = TipoTicket.Preferencial;
-            default -> tipo = TipoTicket.Plataforma;
+    private void txtNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroActionPerformed
+        if (lista != null ) {
+            Ticket primerElemento = lista.primerElemento();
+            int numero= primerElemento.getNumero();
+            txtNumero.setText(String.valueOf(numero));
         }
-        ticket=new Ticket(tipo);
-        
-        lista.agregar(ticket);
-         JOptionPane.showMessageDialog(rootPane, "Se agrego correctamente");
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_txtNumeroActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JComboBox<String> txtTipo;
+    private javax.swing.JTextField txtNumero;
     // End of variables declaration//GEN-END:variables
 }

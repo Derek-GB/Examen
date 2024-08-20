@@ -13,6 +13,10 @@ import java.util.Iterator;
  */
 public class ListaTickets {
     private ArrayList<Ticket> lista;
+    
+    public ListaTickets(){
+       lista = new ArrayList<>();
+    }
 
     public Iterator<Ticket> getLista() {
         return lista.iterator();
@@ -37,6 +41,10 @@ public class ListaTickets {
             }
         }
         return null;
+    }
+    
+    public Ticket primerElemento(){
+        return lista.get(0);
     }
     
 }

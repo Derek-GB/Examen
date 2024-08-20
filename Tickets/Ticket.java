@@ -11,6 +11,7 @@ package Tickets;
 public class Ticket {
     private int numero;
     private TipoTicket tipo;
+    private int contador=0;
 
     public int getNumero() {
         return numero;
@@ -20,13 +21,13 @@ public class Ticket {
         return tipo;
     }
 
-    public Ticket(int numero, TipoTicket tipo) {
-        this.numero = numero;
+    public Ticket( TipoTicket tipo) {
+        this.numero = ++contador;
         this.tipo = tipo;
     }
     
      public Ticket() {
-        this(-1,null);
+        this(null);
     }
 
     @Override
