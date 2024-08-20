@@ -4,6 +4,7 @@
  */
 package GUI;
 
+import Tickets.ControladorTickets;
 import Tickets.ListaTickets;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -13,15 +14,15 @@ import java.awt.Toolkit;
  * @author Student
  */
 public class FrmPrincipal extends javax.swing.JFrame {
-
+    private ControladorTickets controlador;
+    
     /**
      * Creates new form FrmPrincipal
      */
-    ListaTickets lista;
     public FrmPrincipal() {
         initComponents();
         centrar(this);
-        lista= new ListaTickets();
+        controlador = ControladorTickets.getInstance();
         
     }
 
@@ -105,6 +106,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
         txtAdministrar.add(jMenuItem2);
 
         jMenuItem3.setText("Atención");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
         txtAdministrar.add(jMenuItem3);
 
         jMenuBar1.add(txtAdministrar);
@@ -126,16 +132,20 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        FrmGenarador frm= new FrmGenarador(lista);
+        FrmGenarador frm = new FrmGenarador(controlador);
         jDesktopPane1.add(frm);
         frm.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        FrmPantalla frm= new FrmPantalla(lista);
+        FrmPantalla frm = new FrmPantalla(controlador);
         jDesktopPane1.add(frm);
         frm.setVisible(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        FrmAtencion frm = new FrmAtencion(controlador);
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     /**
      * @param args the command line arguments

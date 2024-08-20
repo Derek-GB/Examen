@@ -12,7 +12,7 @@ public class ControladorTickets {
     private static ControladorTickets instancia;
     private ListaTickets tickets;
     
-    public ControladorTickets getInstance(){
+    public static ControladorTickets getInstance(){
         if (instancia == null){
             instancia = new ControladorTickets();
         }
