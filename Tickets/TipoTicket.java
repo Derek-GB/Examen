@@ -9,6 +9,6 @@ package Tickets;
  * @author Student
  */
 public enum TipoTicket {
-    
-    Preferencial,Plataformas,cajas
+
+    Preferencial, Plataformas, cajas
 }

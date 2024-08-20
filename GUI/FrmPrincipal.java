@@ -147,6 +147,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         FrmAtencion frm = new FrmAtencion(controlador);
+        jDesktopPane1.add(frm);
+        frm.setVisible(true);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     /**
