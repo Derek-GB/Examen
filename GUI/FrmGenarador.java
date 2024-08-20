@@ -108,10 +108,10 @@ public class FrmGenarador extends javax.swing.JInternalFrame {
         TipoTicket tipo;
         int seleccion= txtTipo.getSelectedIndex();
         switch (seleccion){
-            case 0 -> tipo = TipoTicket.Plataforma;
-            case 1 -> tipo = TipoTicket.Cajas;
+            case 0 -> tipo = TipoTicket.Plataformas;
+            case 1 -> tipo = TipoTicket.cajas;
             case 2 -> tipo = TipoTicket.Preferencial;
-            default -> tipo = TipoTicket.Plataforma;
+            default -> tipo = TipoTicket.Preferencial;
         }
         ticket=new Ticket(tipo);
         

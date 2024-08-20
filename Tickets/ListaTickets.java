@@ -6,6 +6,7 @@ package Tickets;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import Tickets.TipoTicket;
 
 /**
  *
@@ -45,6 +46,7 @@ public class ListaTickets {
     
     public Ticket primerElemento(){
         return lista.get(0);
+    }
         
     public int contar(TipoTicket tipo){
         int cantidad = 0;
@@ -54,11 +56,6 @@ public class ListaTickets {
             }
         }
         return cantidad;
-    }
-
-    public ListaTickets() {
-        this.lista = new ArrayList<>();
-
     }
     
 }

@@ -25,7 +25,7 @@ public class ControladorTickets {
     
     public void generarTicket(TipoTicket tipo){
         int numero = tickets.contar(tipo);
-        tickets.agregar(new Ticket(numero,tipo));
+        tickets.agregar(new Ticket(tipo));
     }
     
 }
