@@ -5,15 +5,12 @@
 package GUI;
 
 import Tickets.ListaTickets;
-<<<<<<< HEAD
 import Tickets.Ticket;
 import Tickets.TipoTicket;
 import javax.swing.JOptionPane;
 import javax.swing.plaf.OptionPaneUI;
 
-=======
-import Tickets.TipoTicket;
->>>>>>> 2c7ac5abf0f870af7ac6a34aaac47c3cfaa5d9b7
+
 
 /**
  *

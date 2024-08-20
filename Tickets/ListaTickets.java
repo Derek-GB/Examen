@@ -43,10 +43,9 @@ public class ListaTickets {
         return null;
     }
     
-<<<<<<< HEAD
     public Ticket primerElemento(){
         return lista.get(0);
-=======
+        
     public int contar(TipoTicket tipo){
         int cantidad = 0;
         for(Ticket ticket : lista){
@@ -59,7 +58,7 @@ public class ListaTickets {
 
     public ListaTickets() {
         this.lista = new ArrayList<>();
->>>>>>> 2c7ac5abf0f870af7ac6a34aaac47c3cfaa5d9b7
+
     }
     
 }
