@@ -39,4 +39,18 @@ public class ListaTickets {
         return null;
     }
     
+    public int contar(TipoTicket tipo){
+        int cantidad = 0;
+        for(Ticket ticket : lista){
+            if (ticket.getTipo() == tipo){
+                cantidad+=1;
+            }
+        }
+        return cantidad;
+    }
+
+    public ListaTickets() {
+        this.lista = new ArrayList<>();
+    }
+    
 }

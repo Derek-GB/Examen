@@ -5,7 +5,7 @@
 package GUI;
 
 import Tickets.ListaTickets;
-import tickets.TipoTicket;
+import Tickets.TipoTicket;
 
 /**
  *
