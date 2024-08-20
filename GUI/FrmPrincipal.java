@@ -15,6 +15,7 @@ import java.awt.Toolkit;
  */
 public class FrmPrincipal extends javax.swing.JFrame {
     private ControladorTickets controlador;
+    private ListaTickets lista;
     
     /**
      * Creates new form FrmPrincipal
@@ -23,6 +24,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         initComponents();
         centrar(this);
         controlador = ControladorTickets.getInstance();
+        lista = new ListaTickets();
         
     }
 
@@ -138,7 +140,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        FrmPantalla frm = new FrmPantalla(controlador);
+        FrmPantalla frm = new FrmPantalla(controlador,lista);
         jDesktopPane1.add(frm);
         frm.setVisible(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
