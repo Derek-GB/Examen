@@ -17,9 +17,10 @@ public class FrmPantalla extends javax.swing.JInternalFrame {
     /**
      * Creates new form FrmPantalla
      */
-    
+    Ticket ticket;
+    ListaTickets lista;
     ControladorTickets controlador;
-    public FrmPantalla(ControladorTickets controlador) {
+    public FrmPantalla(ControladorTickets controlador, ListaTickets lista) {
         initComponents();
         this.controlador=controlador;
     }
