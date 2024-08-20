@@ -5,6 +5,7 @@
 package GUI;
 
 import Tickets.ControladorTickets;
+import Tickets.TipoTicket;
 
 /**
  *
@@ -16,6 +17,8 @@ public class FrmAtencion extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form FrmAtencion
+     *
+     * @param controlador
      */
     public FrmAtencion(ControladorTickets controlador) {
         initComponents();
@@ -31,21 +34,68 @@ public class FrmAtencion extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        txtTipo = new javax.swing.JComboBox<>();
+        btnAtender = new javax.swing.JButton();
+
+        setClosable(true);
+        setTitle("Antencion");
+
+        txtTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Preferencial", "Plataforma", "Caja" }));
+        txtTipo.setSelectedIndex(-1);
+
+        btnAtender.setText("Siguiente");
+        btnAtender.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAtenderActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 394, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(112, 112, 112)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtTipo, 0, 108, Short.MAX_VALUE)
+                    .addComponent(btnAtender, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(174, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 274, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addComponent(txtTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnAtender)
+                .addContainerGap(189, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnAtenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtenderActionPerformed
+        TipoTicket tipo;
+        switch (this.txtTipo.getSelectedIndex()) {
+            case 0 -> {
+                tipo = TipoTicket.Preferencial;
+            }
+            case 1 -> {
+                tipo = TipoTicket.Plataformas;
+            }
+            case 2 -> {
+                tipo = TipoTicket.cajas;
+            }
+            default -> {
+                tipo = TipoTicket.Preferencial;
+            }
+        }
+        controlador.atender(tipo);
+    }//GEN-LAST:event_btnAtenderActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAtender;
+    private javax.swing.JComboBox<String> txtTipo;
     // End of variables declaration//GEN-END:variables
 }
