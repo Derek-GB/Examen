@@ -28,4 +28,13 @@ public class ControladorTickets {
         tickets.agregar(new Ticket(numero,tipo));
     }
     
+    public Ticket atender(TipoTicket tipo){
+        Ticket ticket = tickets.buscar(tipo);
+        if (ticket == null){
+            return tickets.eliminar(0);
+        }
+        tickets.eliminar(ticket);
+        return ticket;
+    }
+    
 }

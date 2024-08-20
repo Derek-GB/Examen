@@ -22,8 +22,8 @@ public class ListaTickets {
         return lista.add(ticket);
     }
     
-    public void eliminar(int posicion){
-        lista.remove(posicion);
+    public Ticket eliminar(int posicion){
+        return lista.remove(posicion);
     }
     
     public void eliminar(Ticket valor){
